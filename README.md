@@ -150,9 +150,7 @@ We recommend using “virtual hosting” to run your apps. You can set up differ
 
 Add a host alias in your “hosts” file, typically /etc/hosts on unix-type platforms, or c:/Windows/System32/drivers/etc/hosts on Windows. Add a line to the file. This could be “challenge.local” or “challenge.test”, for instance: `127.0.0.1 challenge.local`
 ```
-Listen 5000
-
-<VirtualHost *:5000>
+<VirtualHost *:80>
     DocumentRoot "/var/www/challenge/public"`
     ServerName challenge.local
     ServerAlias challenge.local
