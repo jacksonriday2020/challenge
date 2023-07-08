@@ -1,6 +1,6 @@
 # Challenger Application
 
-## Introdution
+## Introduction
 
 The Booking component must contain a search form with destination, origin, start date, end date, cabin class, among others. This information from the search form must be loaded from a defined list that can be saved in a DB or in a file, since this information does not change frequently, I recommend that everything that is static or almost static be saved in files.
 
@@ -57,7 +57,7 @@ All the parameters that receive the actions either by POST or GET must pass the 
 - Apply model validations.
 - Escape the parameters before they are used to generate an SQL query.
 
-#### The main actions are described below:
+**The main actions are described below:**
 - **airports:** Search for the airports near the user's location or a city. Receives a code and returns a list of up to 5 airports in json format.
 - **searchflyings:** Lists scheduled flights from an origin airport to a destination in a given date range. For each flight, the Origin, Destination, Date and Time of departure, Date and Time of arrival, Number of people, Cabin Class and Price of the flight are shown. Receives Origin, Destination, Start Date, End Date and returns a list of up to 5 scheduled flights in json format.
 - **bookFlight:** Make the reservation of a scheduled flight and flight ticket by email. It receives the identifier of the flight to be booked, the user's email address for sending the ticket and the details of the payment made, and returns a confirmation that the flight has been booked.
@@ -66,7 +66,7 @@ All the parameters that receive the actions either by POST or GET must pass the 
 - **myReservations:** Lists the user's reservations, returns a list of the user's reservations in JSON format
 
 ### Database
-#### Below is a description of the main tables used in the solution:
+**Below is a description of the main tables used in the solution:**
 
 - **flying table:** It is used to save the flights scheduled by the flight agencies.
 - **payment table:** It is used to save user payment data for each flight reservation
@@ -77,7 +77,7 @@ All the parameters that receive the actions either by POST or GET must pass the 
 ### Model
 Each table must be represented as a model class where the attributes and validation rules for each attribute are defined. These classes must implement the information search in the tables and other rules associated with the business process.A model class called BaseModel will be created from which the defined models will inherit. In this class the common attributes and methods will be implemented.A model class called BaseModel will be created from which the defined models will inherit. In this class the common attributes and methods will be implemented.
 
-####Main validations:
+**Main validations:**
 
 **FlyingModel**
 
@@ -130,7 +130,7 @@ On the other hand, as an added value, the user will be given the option to work 
 For the publication of the site in the mentioned providers (Amazon EC2, Google AppEngine, IBM Cloud, etc) I could not complete the form to test the free service for a limited time because the credit card or debit card information was incorrect, since I don't have one.
 I describe the steps to make a site publication on a server:
 
-###Hosting with Apache
+### Hosting with Apache
 
 A webapp is normally hosted on a web server. Apache’s httpd is the “standard” platform, and assumed in much of our documentation.
 
@@ -144,7 +144,7 @@ Make sure that the rewrite module is enabled (uncommented) in the main configura
 
 `LoadModule rewrite_module modules/mod_rewrite.so`
 
-####Virtual Hosting
+**Virtual Hosting**
 
 We recommend using “virtual hosting” to run your apps. You can set up different aliases for each of the apps you work on,
 
@@ -167,15 +167,15 @@ Listen 5000
 If your project folder is not a subfolder of the Apache document root, then your <VirtualHost> element may need a nested <Directory> element to grant the web server access to the files.
 
 
-####Testing
+**Testing**
 
 With the above configuration, your webapp would be accessed with the URL http://challenge.local in your browser.
 
 Apache needs to be restarted whenever you change its configuration.
 
-####Also you must install [postgreSQL](https://www.postgresql.org/download/) and run the db.sql script.
+**Also you must install [postgreSQL](https://www.postgresql.org/download/) and run the db.sql script.**
 
-###Hosting with Nginx
+### Hosting with Nginx
 
 Nginx is the second most widely used HTTP server for web hosting. Here you can find an example configuration using PHP 7.3 FPM (unix sockets) under Ubuntu Server.
 
@@ -213,3 +213,4 @@ server {
         deny all;
     }
 }
+```
